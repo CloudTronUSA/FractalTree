@@ -1,19 +1,24 @@
-private double fractionLength = .8; 
-private int smallestBranch = 10; 
-private double branchAngle = .2;  
-public void setup() 
-{   
-	size(640,480);    
-	noLoop(); 
-} 
-public void draw() 
-{   
-	background(0);   
-	stroke(0,255,0);   
-	line(320,480,320,380);   
-	//drawBranches(??,??,??,??);  //will add later 
-} 
-public void drawBranches(int x,int y, double branchLength, double angle) 
-{   
-	//your code here    
-} 
+void setup(){
+  size(600,600);
+  background(255);
+  stroke(0);
+  translate(width/2,height);
+
+  d(100);
+}
+
+void d(float l){
+  line(0,0,0,-l);
+  translate(0,-l);
+  if(l>4){
+    pushMatrix();
+    rotate(PI/6);
+    d(l*0.67);
+    popMatrix();
+
+    pushMatrix();
+    rotate(-PI/6);
+    d(l*0.67);
+    popMatrix();
+  }
+}
